@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:mobile_app/screens/home/Home.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const RubiksTimerApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class RubiksTimerApp extends StatelessWidget {
+  const RubiksTimerApp({super.key});
 
   // This widget is the root of your application.
   @override
