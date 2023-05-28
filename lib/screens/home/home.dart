@@ -6,6 +6,6 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const CustomScaffold(body: Center(child: Text('Home')));
+    return const CustomScaffold(body: Center(child: Text('Timer goes here')));
   }
 }
