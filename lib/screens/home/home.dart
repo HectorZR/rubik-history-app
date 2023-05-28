@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_app/screens/home/widgets/stop_watch/stop_watch.dart';
 import 'package:mobile_app/widgets/custom_scaffold/custom_scaffold.dart';
 
 class Home extends StatelessWidget {
@@ -6,6 +7,6 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const CustomScaffold(body: Center(child: Text('Timer goes here')));
+    return const CustomScaffold(body: StopWatch());
   }
 }
