@@ -54,7 +54,7 @@ class _StopWatchState extends State<StopWatch> {
           duration: _duration,
           onStartStopwatch: _startStopwatch,
           onStopStopwatch: _stopStopwatch,
-          onResetStopwatch: () => _resetStopwatch()),
+          onResetStopwatch: _resetStopwatch),
     );
   }
 }
