@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
+import 'package:mobile_app/screens/home/widgets/stop_watch/widgets/time.dart';
 
 class StopWatch extends StatefulWidget {
   const StopWatch({Key? key}) : super(key: key);
@@ -13,19 +14,20 @@ class _StopWatchState extends State<StopWatch> {
   Duration _duration = const Duration();
   late Timer timer;
 
-  void _handleStopwatch() {
+  void _startStopwatch() {
     setState(() {
-      if (_isTimeRunning) {
-        _isTimeRunning = false;
-        return;
-      }
-
       timer = Timer.periodic(const Duration(milliseconds: 1), (_) {
         _handleStopwatchTick();
       });
       _isTimeRunning = true;
 
       _resetStopwatch();
+    });
+  }
+
+  void _stopStopwatch() {
+    setState(() {
+      _isTimeRunning = false;
     });
   }
 
@@ -45,33 +47,14 @@ class _StopWatchState extends State<StopWatch> {
     });
   }
 
-  String _getTime() {
-    final String minutesString = _duration.inMinutes.toString().padLeft(2, '0');
-    final String secondsString =
-        (_duration.inSeconds % 60).toString().padLeft(2, '0');
-    final String milisecondsString =
-        (_duration.inMilliseconds % 1000).toString().padLeft(3, '0');
-    String time = '';
-
-    if (_duration.inMinutes == 0) {
-      time = '$secondsString.$milisecondsString';
-    } else {
-      time = '$minutesString:$secondsString.$milisecondsString';
-    }
-
-    return time;
-  }
-
   @override
   Widget build(BuildContext context) {
     return Center(
-        child: Column(children: [
-      Text(_getTime()),
-      ElevatedButton(
-        onPressed: _handleStopwatch,
-        child: Text(_isTimeRunning ? 'Stop' : 'Start'),
-      ),
-      ElevatedButton(onPressed: _resetStopwatch, child: const Text('Reset'))
-    ]));
+      child: Time(
+          duration: _duration,
+          onStartStopwatch: _startStopwatch,
+          onStopStopwatch: _stopStopwatch,
+          onResetStopwatch: () => _resetStopwatch()),
+    );
   }
 }

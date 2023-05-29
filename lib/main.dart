@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-// import 'package:flutter/services.dart';
 import 'package:mobile_app/screens/home/Home.dart';
 
 void main() {
@@ -12,13 +11,13 @@ void main() {
 class RubiksTimerApp extends StatelessWidget {
   const RubiksTimerApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Rubiks Cube Timer',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.cyan),
+        colorScheme: ColorScheme.fromSeed(
+            seedColor: Colors.cyan, background: Colors.cyan),
         useMaterial3: true,
       ),
       home: const Home(),
